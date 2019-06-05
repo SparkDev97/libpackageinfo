@@ -1,8 +1,11 @@
+export THEOS_DEVICE_IP = localhost
+export THEOS_DEVICE_PORT = 2222
+
 build:
-	make -f Makefile.x86_64
+	#make -f Makefile.x86_64
 	make -f Makefile.arm
-	lipo -create obj/libpackageinfo.dylib obj/macosx/libpackageinfo.dylib -output libpackageinfo.dylib
-	mv libpackageinfo.dylib obj/libpackageinfo.dylib
+	#lipo -create obj/libpackageinfo.dylib obj/macosx/libpackageinfo.dylib -output libpackageinfo.dylib
+	#mv libpackageinfo.dylib obj/libpackageinfo.dylib
 
 clean:
 	make -f Makefile.x86_64 clean
