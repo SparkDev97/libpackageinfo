@@ -1,9 +1,12 @@
-Package: jp.ashikase.libpackageinfo
-Name: libpackageinfo
-Version: 1.1.1~SparkDev
+Package: com.spark.libpackageinfo
+Name: libpackageinfo (SparkDev)
+Version: 1.1.2
 Description: Library to retrieve package information.
 Architecture: iphoneos-arm
 Pre-Depends: firmware (>=3.0)
+Provides: jp.ashikase.libpackageinfo
+Replaces: jp.ashikase.libpackageinfo
+Conflicts: jp.ashikase.libpackageinfo
 Depiction: http://moreinfo.thebigboss.org/moreinfo/depiction.php?file=libpackageinfoData
 Homepage: http://github.com/ashikase/libpackageinfo
 Maintainer: BigBoss <bigboss@thebigboss.org>
