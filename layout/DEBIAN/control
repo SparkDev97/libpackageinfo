@@ -1,6 +1,6 @@
 Package: com.spark.libpackageinfo
 Name: libpackageinfo (SparkDev)
-Version: 1.1.2
+Version: 1.1.3
 Description: Library to retrieve package information.
 Architecture: iphoneos-arm
 Pre-Depends: firmware (>=3.0)

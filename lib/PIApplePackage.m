@@ -30,6 +30,7 @@
 - (long)bundleModTime;
 - (id)localizedName;
 - (id)resourcesDirectoryURL;
+- (id)bundleContainerURL;
 @end
 
 @implementation PIApplePackage
@@ -127,7 +128,7 @@ static void cachePackageDetails_iOS8() {
                     [dict setObject:[NSNumber numberWithLong:value] forKey:@"BundleTimestamp"];
                 }
 
-                NSURL *url = [proxy resourcesDirectoryURL];
+                NSURL *url = [proxy respondsToSelector:@selector(resourcesDirectoryURL)] ? [proxy resourcesDirectoryURL] : [proxy bundleContainerURL];//resourcesDirectoryURL];
                 if (url != nil) {
                     NSString *path = [url path];
                     [dict setObject:path forKey:@"Path"];
@@ -149,6 +150,8 @@ static void cachePackageDetails_iOS8() {
 }
 
 + (void)initialize {
+    @try
+    {
     if (self == [PIApplePackage class]) {
         Class $NSDictionary = [NSDictionary class];
         Class $NSString = [NSString class];
@@ -174,6 +177,11 @@ static void cachePackageDetails_iOS8() {
             }
         }
         reverseLookupTable$ = reverseLookupTable;
+    }
+    }
+    @catch(NSException* e)
+    {
+        NSLog(@"SparkDev - %@", e);
     }
 }
 
