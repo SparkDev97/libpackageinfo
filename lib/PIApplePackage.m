@@ -150,8 +150,6 @@ static void cachePackageDetails_iOS8() {
 }
 
 + (void)initialize {
-    @try
-    {
     if (self == [PIApplePackage class]) {
         Class $NSDictionary = [NSDictionary class];
         Class $NSString = [NSString class];
@@ -177,11 +175,6 @@ static void cachePackageDetails_iOS8() {
             }
         }
         reverseLookupTable$ = reverseLookupTable;
-    }
-    }
-    @catch(NSException* e)
-    {
-        NSLog(@"SparkDev - %@", e);
     }
 }
 
