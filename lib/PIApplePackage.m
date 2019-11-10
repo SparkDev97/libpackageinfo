@@ -30,7 +30,7 @@
 - (long)bundleModTime;
 - (id)localizedName;
 - (id)resourcesDirectoryURL;
-- (id)bundleContainerURL;
+- (id)bundleURL;
 @end
 
 @implementation PIApplePackage
@@ -128,7 +128,7 @@ static void cachePackageDetails_iOS8() {
                     [dict setObject:[NSNumber numberWithLong:value] forKey:@"BundleTimestamp"];
                 }
 
-                NSURL *url = [proxy respondsToSelector:@selector(resourcesDirectoryURL)] ? [proxy resourcesDirectoryURL] : [proxy bundleContainerURL];//resourcesDirectoryURL];
+                NSURL *url = [proxy respondsToSelector:@selector(resourcesDirectoryURL)] ? [proxy resourcesDirectoryURL] : [proxy bundleURL];//resourcesDirectoryURL];
                 if (url != nil) {
                     NSString *path = [url path];
                     [dict setObject:path forKey:@"Path"];
